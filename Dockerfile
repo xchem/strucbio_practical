@@ -15,5 +15,5 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-ENTRYPOINT ["/home/${NB_USER}/entryoiunt.sh"]
+ENTRYPOINT ["/home/${NB_USER}/entrypoint.sh"]
 
