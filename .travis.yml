@@ -5,22 +5,19 @@ python:
 services:
     - docker
 stages:
-- name: publish latest
-  if: |
-    branch = master \
-    AND env(PUBLISH_IMAGES) = yes
+    - name: publish latest
+      if: |
+        branch = master \
+        AND env(PUBLISH_IMAGES) = yes
 
 jobs:
   include:
-
-  # Test-stage jobs...
-
-  - stage: publish latest
-    name: Test and Latest Container
-    script:
-        - docker build -t ${BE_NAMESPACE}/fragalysis-backend:latest .
-        - docker-compose -f docker-compose.test.yml up --build --exit-code-from tests --abort-on-container-exit
-        - if [ -n "$DOCKER_PASSWORD" ]; then
-            docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-            docker push ${NAMESPACE}/strucbio-practical:latest;
-          fi
+      - stage: publish latest
+        name: Test and Latest Container
+        script:
+            - docker build -t ${BE_NAMESPACE}/fragalysis-backend:latest .
+            - docker-compose -f docker-compose.test.yml up --build --exit-code-from tests --abort-on-container-exit
+            - if [ -n "$DOCKER_PASSWORD" ]; then
+                docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+                docker push ${NAMESPACE}/strucbio-practical:latest;
+              fi
