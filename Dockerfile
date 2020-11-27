@@ -18,7 +18,9 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-RUN echo "source activate frag-api" > ${HOME}/.bashrc
+RUN conda init \
+    && . {$HOME}/.bashrc
+RUN echo "conda activate frag-api" > ${HOME}/.bashrc
 RUN chmod 777 ${HOME}/.bashrc
 #RUN echo /home/${NB_USER}/entrypoint.sh
 
