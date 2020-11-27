@@ -1,7 +1,7 @@
 FROM xchem/strucbio-practical:latest
 
 RUN chmod 777 /opt/conda/envs/frag-api/
-
+SHELL ["/bin/bash", "-c"]
 ARG NB_USER=joyvan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -19,6 +19,11 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-RUN echo /home/${NB_USER}/entrypoint.sh
-ENTRYPOINT ${HOME}/entrypoint.sh
+RUN echo "source activate frag-api" > ${HOME}/.bashrc
+#RUN echo /home/${NB_USER}/entrypoint.sh
+
+#CMD conda run -n frag-api /bin/bash -c "$@" 
+
+
+#ENTRYPOINT ${HOME}/entrypoint.sh
 #CMD source activate frag-api; jupyter notebook --ip 0.0.0.0
