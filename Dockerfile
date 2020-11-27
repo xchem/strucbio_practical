@@ -1,13 +1,12 @@
 FROM xchem/strucbio-practical:latest
 
 RUN chmod 777 /opt/conda/envs/frag-api/
-SHELL ["/bin/bash", "-c"]
 ARG NB_USER=joyvan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
-
+ENV SHELL /bin/bash
 RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
