@@ -23,10 +23,6 @@ USER ${NB_USER}
 #RUN conda init bash; . ${HOME}/.bashrc
 RUN echo "source activate frag-api" >> ${HOME}/.bashrc
 RUN chmod 777 ${HOME}/.bashrc
-#RUN echo /home/${NB_USER}/entrypoint.sh
-
-#CMD conda run -n frag-api /bin/bash -c "$@" 
-
 
 #ENTRYPOINT ${HOME}/entrypoint.sh
-#CMD source activate frag-api; jupyter notebook --ip 0.0.0.0
+CMD source activate frag-api; jupyter notebook --ip 0.0.0.0
