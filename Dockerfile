@@ -14,10 +14,11 @@ RUN adduser --disabled-password \
     ${NB_USER}
 
 # Make sure the contents of our repo are in ${HOME}
+ADD entrypoint.sh .
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 RUN echo /home/${NB_USER}/entrypoint.sh
-ENTRYPOINT ${HOME}/entrypoint.sh
-
+CMD ${HOME}/entrypoint.sh
+#CMD source activate frag-api; jupyter notebook --ip 0.0.0.0
