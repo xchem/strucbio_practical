@@ -8,5 +8,4 @@ RUN apt-get install -y git-all
 RUN conda env create -f environment.yml
 RUN conda init bash
 RUN echo "conda activate frag-api" > ~/.bashrc
-# RUN /strucbio_practical/setup.sh
-# CMD source activate frag-api
+
