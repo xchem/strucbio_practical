@@ -1,5 +1,5 @@
 FROM xchem/strucbio-practical:latest
-ARG NB_USER=student
+ARG NB_USER=joyvan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
@@ -15,5 +15,5 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-
+ENTRYPOINT ["/home/${NB_USER}/entryoiunt.sh"]
 
