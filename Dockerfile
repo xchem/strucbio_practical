@@ -1,4 +1,7 @@
 FROM xchem/strucbio-practical:latest
+
+RUN chmod 777 /opt/conda/envs/frag-api/
+
 ARG NB_USER=joyvan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -15,5 +18,6 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-ENTRYPOINT ["/home/${NB_USER}/entrypoint.sh"]
+RUN echo /home/${NB_USER}/entrypoint.sh
+ENTRYPOINT ${HOME}/entrypoint.sh
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 source activate frag-api
-exec "$@"
+exec -c "$@"
