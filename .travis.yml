@@ -15,7 +15,7 @@ jobs:
       - stage: publish latest
         name: Test and Latest Container
         script:
-            - docker build -t ${NAMESPACE}/strucbio-practical:latest .
+            - docker build -t ${NAMESPACE}/strucbio-practical:latest -f ./Dockerfile-base
             - if [ -n "$DOCKER_PASSWORD" ]; then
                 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
                 docker push ${NAMESPACE}/strucbio-practical:latest;

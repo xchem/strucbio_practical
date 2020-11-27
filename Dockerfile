@@ -1,11 +1,19 @@
-FROM continuumio/anaconda3
-COPY . /strucbio_practical
-WORKDIR /strucbio_practical
-# SHELL ["/bin/bash", "--login", "-c"]
-RUN apt-get update -y
-RUN apt-get install -y build-essential python-dev python-pmw libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev python-pyqt5.qtopengl libglm-dev libnetcdf-dev
-RUN apt-get install -y git-all
-RUN conda env create -f environment.yml
-SHELL ["conda", "run", "-n", "frag-api", "/bin/bash", "-c"]
-RUN echo "source activate frag-api" > ~/.bashrc
+FROM xchem/strucbio-practical:latest
+ARG NB_USER=student
+ARG NB_UID=1000
+ENV USER ${NB_USER}
+ENV NB_UID ${NB_UID}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+
+# Make sure the contents of our repo are in ${HOME}
+COPY . ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
+
 
