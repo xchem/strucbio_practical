@@ -16,7 +16,6 @@ jobs:
         name: Test and Latest Container
         script:
             - docker build -t ${NAMESPACE}/strucbio-practical:latest .
-            - docker-compose -f docker-compose.test.yml up --build --exit-code-from tests --abort-on-container-exit
             - if [ -n "$DOCKER_PASSWORD" ]; then
                 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
                 docker push ${NAMESPACE}/strucbio-practical:latest;
