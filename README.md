@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/xchem/strucbio_practical/HEAD)
+
 # Structural Biology Practical - 4th December 2020
 
 ## Links you will need:
