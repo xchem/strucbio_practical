@@ -6,7 +6,7 @@
 
 ## Run from Binder (recommended)
 To launch this practical in an interactive mode in your browser, without the need to install anything, you can click the
- 'launch binder' button above. This will redirect you to a page on ``binder.org`, and will launch a server for you. The 
+ 'launch binder' button above. This will redirect you to a page on ``binder.org``, and will launch a server for you. The 
  launch should take no more than a couple of minutes. 
  
  When the server is launched, you will see a Jupyter notebook home page. To access the interactive parts of the 
