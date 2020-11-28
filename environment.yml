@@ -8,3 +8,4 @@ dependencies:
     - pip:
         - "--editable=git+https://github.com/xchem/pandda_gemmi.git@master#egg=pandda_gemmi"
         - "--editable=git+https://github.com/xchem/fragalysis-api.git@master#egg=fragalysis-api"
+        - gemmi
