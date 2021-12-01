@@ -1,12 +1,12 @@
 name: frag-api
 channels:
-    - conda-forge
+  - conda-forge
 dependencies:
-    - rdkit
-    - numpy=1.19.4
-    - pip
-    - pip:
-        - "--editable=git+https://github.com/xchem/pandda_gemmi.git@master#egg=pandda_gemmi"
-        - "--editable=git+https://github.com/xchem/fragalysis-api.git@77cf6d9652e4a1875d79f38e9955edd47a9e62cf#egg=fragalysis-api"
-        - gemmi
-        - rxn4chemistry
+  - rdkit
+  - numpy=1.19.4
+  - opentrons
+  - pip
+  - pip:
+      - "--editable=git+https://github.com/xchem/pandda_gemmi.git@master#egg=pandda_gemmi"
+      - "--editable=git+https://github.com/xchem/fragalysis-api.git@77cf6d9652e4a1875d79f38e9955edd47a9e62cf#egg=fragalysis-api"
+      - gemmi
